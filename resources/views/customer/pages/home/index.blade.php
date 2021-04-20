@@ -78,12 +78,12 @@
             <div class="section-filter-home d-none d-md-block">
                 <form action="" id="form-search">
                     <div class="search-type d-flex">
-                        <div class="search-type-item mr-1"  id="nhadatban">
+                        <div class="search-type-item mr-1" id="nhadatban">
                             <input type="radio" class="d-none" name="loai-tin-dang" value="1" id="realty-sell">
                             <label class="py-2 px-4 font-9 m-0 rounded-top" for="realty-sell"><strong>NHÀ ĐẤT
                                     BÁN</strong></label>
                         </div>
-                        <div class="search-type-item"  id="nhadatthue">
+                        <div class="search-type-item" id="nhadatthue">
                             <input class="d-none" type="radio" name="loai-tin-dang" checked value="2" id="realty-rent">
                             <label class="py-2 px-4 m-0 font-9 rounded-top" for="realty-rent" class="cho_thue"><strong>NHÀ
                                     ĐẤT CHO
@@ -123,7 +123,7 @@
                             </div>
                         </div>
 
-              
+
 
                         <div class="search-criteria d-flex mt-2">
                             <div class="form-group mb-2 py-2 search-input pl-2 pr-1">
@@ -144,14 +144,15 @@
                                     data-dropdown-css-class="select2-info" style="width: 100%;">
                                     <option value="" selected="">Dự án</option>
                                     @foreach ($home_projects as $home_project)
-                                <option data-slug="{{$home_project->slug}}" value="{{$home_project->province_code}}">{{$home_project->name}}
-                                </option>
-                                @endforeach
+                                        <option data-slug="{{ $home_project->slug }}"
+                                            value="{{ $home_project->province_code }}">{{ $home_project->name }}
+                                        </option>
+                                    @endforeach
                                 </select>
                             </div>
 
 
-                            
+
                             <div class="form-group mb-2 py-2 search-input px-2 ">
                                 <i class="fal fa-bed ml-2"></i>
                                 <select class="form-control select2 select2-info" id="bedroom" value="" name="so-phong-ngu"
@@ -173,9 +174,23 @@
                                 {{-- thue --}}
                                 <select class="form-control select2 select2-info realty-price" name="gia"
                                     data-dropdown-css-class="select2-info" style="width: 100%;">
-                                   
-
                                     @foreach (config('constant.realty_post_type') as $type_id => $realty_post_type)
+                                        <option value="">Giá</option>
+                                        @foreach ($list = $realty_post_type['price_range'] as $index => $range)
+                                            @if ($index < count($list) - 1)
+                                                <option data-realty-post-type="{{ $type_id }}" name="gia"
+                                                    value="{{ $list[$index] * 1000000 }},{{ $list[$index + 1] * 1000000 }}">
+                                                    {{ beautyPrice($list[$index] * 1000000) }} -
+                                                    {{ beautyPrice($list[$index + 1] * 1000000) }}</option>
+                                            @else
+                                                <option data-realty-post-type="{{ $type_id }}" name="gia"
+                                                    value="{{ $list[$index] * 1000000 }},10000000000000">Trên
+                                                    {{ beautyPrice($list[$index] * 1000000) }}</option>
+                                            @endif
+                                        @endforeach
+                                    @endforeach
+
+                                    {{-- @foreach (config('constant.realty_post_type') as $type_id => $realty_post_type)
 
                                         <option value="">Giá</option>
                                         @foreach ($list = $realty_post_type['price_range'] as $index => $range)
@@ -191,7 +206,7 @@
                                             @endif
                                         @endforeach
                                         <?php break; ?>
-                                    @endforeach
+                                    @endforeach --}}
                                 </select>
 
 
@@ -337,14 +352,14 @@ alt="">
                 $(this).removeClass('closed');
                 $(this).addClass('opened');
                 $(this).html(`
-                        <i class="far fa-chevron-up"></i> Ẩn
-                        `);
+                            <i class="far fa-chevron-up"></i> Ẩn
+                            `);
             } else if ($(this).hasClass('opened')) {
                 $(this).removeClass('opened');
                 $(this).addClass('closed');
                 $(this).html(`
-                        <i class="far fa-chevron-down"></i> Thêm
-                        `);
+                            <i class="far fa-chevron-down"></i> Thêm
+                            `);
             }
         })
 
@@ -494,8 +509,8 @@ alt="">
 
         $('.search-type label').on('click', function() {
             var type = $(this).data('value');
-            // $('.price_range input').prop('checked', false);
-            // $('.price_range').hide();
+            // $('.price_range input').prop('checked', true);
+            $('.price_range').hide();
             $(`.price_range[data-value=${type}]`).show();
         })
         $('.search-type .cho_thue').trigger('click');
