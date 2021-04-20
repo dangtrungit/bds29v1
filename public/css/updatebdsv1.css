@@ -1,5 +1,28 @@
+.main-text1,
+.text-dark1 {
+    color: #FFFFFF !important;
+}
+
+@media only screen and (max-width :1240px) {
+    .img-responsive {
+        height: 28vh !important;
+    }
+    .owl-carousel .owl-item img {
+        height: 100% !important;
+    }
+    .ipad_input {
+        width: 300px !important;
+    }
+}
+
 @media only screen and (max-width: 768px) {
-  #thumbs{
-      display: none !important;
-  }
-  }
+    #thumbs {
+        display: none !important;
+    }
+    .img-responsive {
+        height: auto !important;
+    }
+    .owl-carousel .owl-item img {
+        height: 100% !important;
+    }
+}

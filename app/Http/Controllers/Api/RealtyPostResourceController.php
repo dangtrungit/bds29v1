@@ -73,7 +73,7 @@ class RealtyPostResourceController extends Controller
             $realty = $realty_post->realty;
             $string_price = '';
             if ($realty_post->price_type !== 0) {
-                $string_price .= beautyPrice($realty_post->price);
+                $string_price .= \App\Helpers\CurrencyHelper::beautyPrice($realty_post->price);
             }
             $string_price .= ' ' . config('constant.price_type.' . $realty_post->price_type)['front_view'];
 

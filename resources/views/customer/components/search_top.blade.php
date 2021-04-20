@@ -51,8 +51,8 @@
                 </div>
             </div>
 
-            <div class="address-input p-3 border-right">
-                <input style="width:400px; max-width:100%" type="text" class=" form-control rounded-0" name="dia-chi" placeholder="Nhập địa chỉ"
+            <div class="address-input p-3 border-right ">
+                <input style="width:400px; max-width:100%" type="text" class="ipad_input form-control rounded-0" name="dia-chi" placeholder="Nhập địa chỉ"
                 @isset($filter_search['realty.full_address'])
                     value="{{$filter_search['realty.full_address']}}"
                 @endisset

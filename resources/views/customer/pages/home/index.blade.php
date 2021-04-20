@@ -171,7 +171,7 @@
                                 <i class="fal fa-usd-circle ml-2"></i>
 
                                 {{-- thue --}}
-                                <select class="form-control select2 select2-info realty-price price_thue" name="gia"
+                                <select class="form-control select2 select2-info realty-price" name="gia"
                                     data-dropdown-css-class="select2-info" style="width: 100%;">
                                    
 
@@ -194,28 +194,6 @@
                                     @endforeach
                                 </select>
 
-                                {{-- ban --}}
-                                {{-- <select class="form-control select2 select2-info realty-price price_ban" name="gia"
-                                    data-dropdown-css-class="select2-info" style="width: 100%;">                                  
-
-                                    @foreach (config('constant.realty_post_type') as $type_id => $realty_post_type)
-
-                                        <option value="">Giá</option>
-                                        @foreach ($list = $realty_post_type['price_range_ban'] as $index => $range)
-                                            @if ($index < count($list) - 1)
-                                                <option data-realty-post-type="{{ $type_id }}" name="gia"
-                                                    value="{{ $list[$index] * 1000000 }},{{ $list[$index + 1] * 1000000 }}">
-                                                    {{ beautyPrice($list[$index]) }} -
-                                                    {{ beautyPrice($list[$index + 1]) }}</option>
-                                            @else
-                                                <option data-realty-post-type="{{ $type_id }}" name="gia"
-                                                    value="{{ $list[$index] * 1000000 }},10000000000000">Trên
-                                                    {{ beautyPrice($list[$index]) }}</option>
-                                            @endif
-                                        @endforeach
-                                        <?php break; ?>
-                                    @endforeach
-                                </select> --}}
 
                             </div>
 
@@ -496,28 +474,28 @@ alt="">
             e.stopPropagation();
         })
 
-        $('#nhadatban').on('click', function() {
-            $('.price_thue').attr('style', 'display:none!important');
-            // $('.price_thue').removeClass('on');
-            $(".price_ban").removeAttr("style")
-            // $('.price_ban').addClass('advance-select-option');
-            // $('.price_thue').removeClass('advance-select-option');
+        // $('#nhadatban').on('click', function() {
+        //     $('.price_thue').attr('style', 'display:none!important');
+        //     // $('.price_thue').removeClass('on');
+        //     $(".price_ban").removeAttr("style")
+        //     // $('.price_ban').addClass('advance-select-option');
+        //     // $('.price_thue').removeClass('advance-select-option');
 
-        })
+        // })
 
-        $('#nhadatthue').on('click', function() {
-            $('.price_ban').attr('style', 'display:none!important');
-            // $('.price_ban').removeClass('on');
-            // $('.price_ban').addClass('on');
-            $(".price_thue").removeAttr("style")
-            // $('.price_thue').addClass('advance-select-option');
-            // $('.price_ban').removeClass('advance-select-option');
-        })
+        // $('#nhadatthue').on('click', function() {
+        //     $('.price_ban').attr('style', 'display:none!important');
+        //     // $('.price_ban').removeClass('on');
+        //     // $('.price_ban').addClass('on');
+        //     $(".price_thue").removeAttr("style")
+        //     // $('.price_thue').addClass('advance-select-option');
+        //     // $('.price_ban').removeClass('advance-select-option');
+        // })
 
         $('.search-type label').on('click', function() {
             var type = $(this).data('value');
-            $('.price_range input').prop('checked', false);
-            $('.price_range').hide();
+            // $('.price_range input').prop('checked', false);
+            // $('.price_range').hide();
             $(`.price_range[data-value=${type}]`).show();
         })
         $('.search-type .cho_thue').trigger('click');

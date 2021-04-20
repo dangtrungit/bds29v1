@@ -28,7 +28,8 @@ class RealtyPostController extends Controller
         SlugService $slug_service,
         FilterService $filter_service,
         RealtySlugHelper $realty_slug_helper,
-        RelatedRealtyService $related_realty_service) {
+        RelatedRealtyService $related_realty_service
+    ) {
 
         $this->slug_service = $slug_service;
         $this->slug_service->setModel(RealtyPost::class);
@@ -36,7 +37,6 @@ class RealtyPostController extends Controller
         $this->realty_slug_helper = $realty_slug_helper;
 
         $this->related_realty_service = $related_realty_service;
-
     }
 
     public function showForm()
@@ -51,7 +51,8 @@ class RealtyPostController extends Controller
         return view('customer.pages.user_profile.create_post', compact('provinces', 'post_ranks'));
     }
 
-    function list() {
+    function list()
+    {
         $posts = RealtyPost::with('realty')->orderByDesc('realty_posts.id');
         return DataTables::eloquent($posts)
             ->addIndexColumn()
@@ -91,7 +92,6 @@ class RealtyPostController extends Controller
                     default:
                         return '<span class="badge badge-danger">Chưa duyệt</span>';
                 }
-
             })
             ->addColumn('action', function ($post) {
                 return '
@@ -108,9 +108,8 @@ class RealtyPostController extends Controller
         // store realty
         $commune = Commune::where('code', $request->commune)->first();
         // $projects = implode(",",$request->project);
-        dd($request->all());
         $realty_id = [];
-        foreach($request->project as $key=>$value){
+        foreach ($request->project as $key => $value) {
             $new_realty = Realty::create([
                 'type' => $request->realty_type,
                 'province_code' => $request->province,
@@ -132,7 +131,7 @@ class RealtyPostController extends Controller
                 'project_id' => $value,
                 'furniture' => $request->furniture,
             ]);
-            array_push($realty_id,$new_realty->id);
+            array_push($realty_id, $new_realty->id);
         }
         // dd($realty_id);
         // $new_realty = Realty::create([
@@ -156,11 +155,11 @@ class RealtyPostController extends Controller
         //     'project_id' => $projects,
         //     'furniture' => $request->furniture,
         // ]);
-        foreach($realty_id as $new_realty_id) {
+        foreach ($realty_id as $new_realty_id) {
             $open_at = Carbon::createFromFormat('d/m/Y', $request->open_at);
             $close_at = Carbon::createFromFormat('d/m/Y', $request->close_at);
             $slug = $this->slug_service->getSlug($request->title);
-                $new_realty_post = RealtyPost::create([
+            $new_realty_post = RealtyPost::create([
                 'title' => $request->title,
                 'slug' => $slug,
                 'type' => $request->realty_post_type,
@@ -311,7 +310,7 @@ class RealtyPostController extends Controller
         $realty_post = RealtyPost::findOrFail($id);
         $realty = $realty_post->realty;
         $slug = $this->slug_service->getSlug($request->title);
-        $projects = implode(",",$request->project);
+        $projects = implode(",", $request->project);
         $realty->update([
             'type' => $request->realty_type,
             'province_code' => $request->province,
@@ -362,7 +361,8 @@ class RealtyPostController extends Controller
             'realty',
             'realty.province',
             'realty.district',
-            'realty.commune')
+            'realty.commune'
+        )
             ->join('realty as table_realty', 'realty_posts.realty_id', '=', 'table_realty.id')
             ->select([
                 'table_realty.area as area',
@@ -371,6 +371,7 @@ class RealtyPostController extends Controller
         // return $query;
         $query = $this->filter_service->filter($query);
         $realties = $query->paginate(12)->appends(request()->query());
+
         if (!$realties) {
             return abort(404);
         }
@@ -391,7 +392,8 @@ class RealtyPostController extends Controller
             'realty.province',
             'realty.commune',
             'realty.province.districts',
-            'realty.province.districts.realty_posts')
+            'realty.province.districts.realty_posts'
+        )
             ->where('slug', $slug)->first();
         if (!$realty_post) {
             return abort(404);
@@ -418,20 +420,27 @@ class RealtyPostController extends Controller
 
     public function searchByParam($search_slug, Request $request)
     {
+        /*
+        |--------------------------------------------------------------------------
+        | Update bds 
+        |--------------------------------------------------------------------------
+        | update form search bds
+        */
         if (!$request->sort) {
             $request->request->add(['sort' => '-rank']);
         }
         $query_from_slug = $this->realty_slug_helper->getFilterStringFromSlug($search_slug);
         $request->request->add(['filter' => $query_from_slug]);
         $side_lists = $this->related_realty_service->getRelatedRealty($query_from_slug['loai-tin-dang'] ?? null, null, $query_from_slug['tinh'] ?? null, $query_from_slug['huyen'] ?? null);
-      
+
         $query = RealtyPost::with(
             'author',
             'realty',
             'featured_by',
             'realty.province',
             'realty.district',
-            'realty.commune')
+            'realty.commune'
+        )
             ->join('realty as table_realty', 'realty_posts.realty_id', '=', 'table_realty.id')
             // ->join('projects as table_projects', 'table_realty.project_id', '=', 'table_projects.id')
             ->select([
@@ -451,16 +460,17 @@ class RealtyPostController extends Controller
         if ($request->has('us')) {
             $user = User::find($request->us);
         }
+        
 
         $query = $this->filter_service->filter($query);
 
         // Xử lý ô tìm kiếm hiện tại
         $filter_search = $this->filter_service->readQuery();
+        // dd($filter_search);
 
         $search_address = $this->filter_service->getSearchAddress();
 
         $realties = $query->paginate(12)->onEachSide(5)->appends(request()->query());
-
         if (!$realties) {
             return abort(404);
         }

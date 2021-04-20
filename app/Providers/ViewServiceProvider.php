@@ -67,6 +67,7 @@ class ViewServiceProvider extends ServiceProvider
             }
 
             $widgets = Widget::all();
+
             $featured_district_code = $widgets->where('name', 'bds_noi_bat')->first()->data_array->districts ?? [];
             $featured_district = District::whereIn('code', $featured_district_code)->get();
             $home_projects = $widgets->where('name', 'du_an_noi_bat')->first()->data_array->projects ?? [];

@@ -17,7 +17,7 @@
     </style>
 @endsection
 {{-- <div class="menu-responsive-overlay"></div> --}}
-<div class="navigation sticky-top bg-white">
+<div class="navigation sticky-top" style="background: #024073;">
     <div class="header-container p-md-3 border-bottom">
         <header class="" id="top" role="banner">
             <section class="menu-desktop d-none d-md-flex align-items-center">
@@ -28,7 +28,7 @@
                 </div>
                 <nav class="d-flex align-items-center desktop-menu">
                     @foreach ($main_menu as $item)
-                    <div class="menu-item p-3 @if(isset($item->childs) && $item->childs != []) has-child @endif"><a class="font-weight-bold main-text font-9" href="{{$item->href ?? '#'}}"> {{$item->title}}</a>
+                    <div class="menu-item p-3 @if(isset($item->childs) && $item->childs != []) has-child @endif"><a class="font-weight-bold main-text1 font-9" href="{{$item->href ?? '#'}}"> {{$item->title}}</a>
                         @isset($item->childs)
                             @if ($item->childs->isNotEmpty())
                                 <ul class="child-navigation submenu-1 border px-3 bg-white rounded shadow-10">
@@ -101,8 +101,8 @@
                     </div>
                     @else
                     <div class="login-logout">
-                        <a href="#" class="text-dark px-2 font-9 " data-toggle="modal" data-target="#register">Đăng ký</a>
-                        <a href="#" class="text-dark font-9" data-toggle="modal" data-target="#popup-login"><span class="border-left px-2">Đăng nhập</span></a>
+                        <a href="#" class="text-dark1 px-2 font-9 " data-toggle="modal" data-target="#register">Đăng ký</a>
+                        <a href="#" class="text-dark1 font-9" data-toggle="modal" data-target="#popup-login"><span class="border-left px-2">Đăng nhập</span></a>
                         <span href="/dang-tin" class="ml-2 btn font-9 btn-outline-info" data-toggle="modal" data-target="#popup-login"><strong>Đăng tin</strong></span>
                     </div>
                     @endif

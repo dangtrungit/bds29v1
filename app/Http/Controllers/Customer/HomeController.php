@@ -12,6 +12,7 @@ use App\Models\Province;
 use App\Models\RealtyPost;
 use App\Models\Widget;
 use App\Services\ProjectService;
+use Illuminate\Support\Facades\Request;
 
 class HomeController extends Controller
 {
@@ -20,9 +21,10 @@ class HomeController extends Controller
         $this->project_service = $project_service;
     }
 
-    public function index()
+    public function index(Request $request)
     {
         $widgets = Widget::all();
+        // $linkRequest = $request->all();
 
         if (!empty(config('constant.provinces'))) {
             $provinces = Province::whereIn('code', config('constant.provinces'))->get();
