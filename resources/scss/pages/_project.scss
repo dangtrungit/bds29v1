@@ -1,0 +1,35 @@
+.project-detail {
+    #menu-project {
+        a {
+            &:hover {
+                background-color: rgba(100, 100, 100, 0.103);
+                border-bottom: 3px solid $info;
+            }
+            &.active {
+                background-color: rgba(100, 100, 100, 0.103);
+                border-bottom: 3px solid $info;
+            }
+        }
+    }
+    .boxwidget {
+        .panel {
+            a {
+                color: $dark;
+            }
+            .panel-collapse {
+                border: 1px solid $gray-400;
+                border-radius: 5px;
+                padding: 1rem;
+            }
+        }
+    }
+
+    .menucontent {
+        li {
+            a.active {
+                color: $info;
+                font-weight: 500;
+            }
+        }
+    }
+}

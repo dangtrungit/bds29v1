@@ -1,0 +1,74 @@
+.payment-wraper.active {
+    background: #e8f4fb;
+}
+
+.payment-body {
+    display: none;
+}
+
+.payment-wraper.active .payment-body {
+    display: block;
+}
+
+.payment-wraper {
+    input[type="radio"] {
+        width: 30px;
+        height: 30px;
+    }
+    .payment-method {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 100%;
+        padding: 10px 0px;
+        border-top: 1px dotted gray;
+    }
+
+    .method-image {
+        flex-grow: 0; /* do not grow   - initial value: 0 */
+        flex-shrink: 0; /* do not shrink - initial value: 1 */
+        flex-basis: 45px; /* width/height  - initial value: auto */
+        img {
+            width: 100%;
+        }
+    }
+
+    .method-content {
+        flex-grow: 1;
+        padding-left: 10px;
+    }
+
+    .method-content span {
+        font-size: 13px;
+    }
+
+    .bank-details {
+        background: #fff;
+    }
+
+    .bank-details-head {
+        display: flex;
+        align-items: center;
+    }
+
+    .bank-content {
+        font-size: 12px;
+    }
+    .bank-content label {
+        background: #06a4eb;
+        padding: 1px 4px;
+        border-radius: 3px;
+        color: #fff;
+        margin-top: 2px;
+        margin-right: 5px;
+    }
+
+    .bank-select {
+        input:checked {
+            & + label {
+                border: 2px solid red;
+                background-color: $light-blue;
+            }
+        }
+    }
+}

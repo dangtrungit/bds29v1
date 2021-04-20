@@ -1,0 +1,47 @@
+.search-top {
+    @include scroll-horizon(6px);
+    .search-type-item {
+        input {
+            &:checked {
+                & + label {
+                    background-color: $info;
+                    color: white;
+                }
+            }
+        }
+
+        label {
+            background-color: white;
+        }
+    }
+
+    .dropdown-menu {
+        z-index: 100000;
+    }
+}
+
+.select2-container {
+    .select2-dropdown {
+        border-top: 1px solid $gray-300 !important;
+        border-radius: 0;
+    }
+    font-size: 0.9rem;
+    .select2-selection {
+        &--single {
+            border: none;
+        }
+    }
+}
+
+#nav-search {
+    .search-type-item {
+        input {
+            &:checked {
+                & + label {
+                    background-color: $info;
+                    color: white;
+                }
+            }
+        }
+    }
+}

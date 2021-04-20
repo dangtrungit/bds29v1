@@ -1,0 +1,46 @@
+@for $i from 5 to 30 {
+    .font-#{$i} {
+        font-size: #{$i/10}rem !important;
+    }
+}
+
+@for $i from 5 to 30 {
+    .line-height-#{$i} {
+        line-height: #{$i/10}rem !important;
+    }
+}
+
+$fonts: 400, 500, 600, 700;
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .font#{$infix}-9 {
+            font-size: 0.9rem !important;
+        }
+        .font#{$infix}-10 {
+            font-size: 1rem !important;
+        }
+        .font#{$infix}-11 {
+            font-size: 1.1rem !important;
+        }
+        .font#{$infix}-12 {
+            font-size: 1.2rem !important;
+        }
+        .font#{$infix}-13 {
+            font-size: 1.3rem !important;
+        }
+
+        @each $font in $fonts {
+            .font-weight#{$infix}-#{$font} {
+                font-weight: $font !important;
+            }
+        }
+    }
+}
+
+.hrm-truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

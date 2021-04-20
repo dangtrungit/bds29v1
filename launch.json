@@ -1,0 +1,11 @@
+{
+    "version": "0.1.0",
+    "configurations": [
+        {
+            "type": "devtools-for-chrome",
+            "request": "attach",
+            "name": "Attach Chrome DevTools",
+            "url": "http://localhost:100/"
+        }
+    ]
+  }

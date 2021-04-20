@@ -1,0 +1,54 @@
+.w-20 {
+    flex: 0 0 20%;
+}
+
+.flex-fixed-20 {
+    flex: 0 0 20%;
+}
+
+.flex-fixed-10px {
+    flex: 0 0 10px;
+}
+
+.flex-fixed {
+    flex: 0 0;
+}
+
+.img-wraper {
+    img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover !important;
+    }
+}
+
+.rounded-pill {
+    border-radius: 50rem;
+}
+
+@each $breakpoint in map-keys($grid-breakpoints) {
+    @include media-breakpoint-up($breakpoint) {
+        $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+        .height#{$infix}-180 {
+            height: 180px !important;
+        }
+        .height#{$infix}-120 {
+            height: 120px !important;
+        }
+
+        .height#{$infix}-150 {
+            height: 150px !important;
+        }
+    }
+}
+
+.dropdown-menu-center {
+    right: auto !important;
+    left: 50% !important;
+    top: 50px !important;
+    -webkit-transform: translate(-50%, 0) !important;
+    -o-transform: translate(-50%, 0) !important;
+    transform: translate(-50%, 0) !important;
+}

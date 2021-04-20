@@ -1,0 +1,39 @@
+//$info: #0398da;
+$info: #007bff;
+
+@import "./plugins/bootstrap/bootstrap";
+@import "./plugins/menu/hc-offcanvas-nav";
+
+@import "./base/_variables";
+@import "./base/_color";
+@import "./base/_font";
+@import "./base/_align";
+@import "./base/_reset";
+
+@import "./mixins/_mixin.scss";
+
+@import "./plugins/select2/select2.css";
+@import "./plugins/select2/select2.scss";
+@import "~animate.css/source/animate.css";
+@import "./plugins/owl.carousel.css";
+@import "./plugins/sweetalert2.css";
+
+@import "./components/_lte_sidebar";
+@import "./components/_button";
+@import "./components/_paginate";
+@import "./components/_menu";
+@import "./components/_search_top";
+@import "./components/_login_system";
+@import "./components/_miscellaneous";
+@import "./components/_advertisment";
+@import "./components/_errors";
+@import "./components/_dropzone";
+
+@import "./partials/_header";
+@import "./partials/_footer";
+
+@import "./pages/_home";
+@import "./pages/_realty_list";
+@import "./pages/_post_by_tag";
+@import "./pages/_recharge";
+@import "./pages/_project";

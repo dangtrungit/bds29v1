@@ -1,0 +1,11 @@
+.head-posts {
+    .head-posts-title {
+        background-color: rgba(0, 0, 0, 0.514);
+        transition: 0.3s;
+    }
+    &:hover {
+        .head-posts-title {
+            background-color: #0098da91;
+        }
+    }
+}

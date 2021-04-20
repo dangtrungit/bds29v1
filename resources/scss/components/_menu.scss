@@ -1,0 +1,16 @@
+.hrm-menu-item {
+    position: relative;
+    .submenu-bottom {
+        position: absolute;
+        top: calc(100% + 30px);
+        opacity: 0;
+        left: 0px;
+        transition: 0.3s;
+        z-index: -1;
+    }
+    &:hover .submenu-bottom {
+        opacity: 1;
+        top: 100%;
+        z-index: 1000;
+    }
+}

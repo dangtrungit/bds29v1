@@ -1,0 +1,47 @@
+.main-text {
+    color: $dark;
+}
+
+.secondary-text {
+    color: $secondary;
+}
+
+.title-text {
+    color: $darken;
+}
+
+.text-blue {
+    color: $main-blue;
+}
+
+.color-light {
+    color: $light;
+}
+
+.text-blue-dark {
+    color: $dark-blue;
+}
+
+@for $i from 5 through 10 {
+    .shadow-#{$i} {
+        box-shadow: 0 0 #{$i}px rgba(0, 0, 0, 0.212);
+    }
+}
+
+.hrm-bg-secondary {
+    background-color: #f0f2f5 !important;
+}
+
+.hrm-bg-info {
+    background-color: #f0f2f5 !important;
+}
+
+.dropzone {
+    border: 2px dashed rgba(0, 0, 0, 0.3) !important;
+    border-radius: 5px;
+}
+
+.blur-bg {
+    filter: blur(30px) !important;
+    -webkit-filter: blur(30px);
+}

@@ -1,0 +1,14 @@
+.sidebar-post-link {
+    display: flex;
+    &::before {
+        content: "";
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #eb5155;
+        display: inline-block;
+        margin-top: 3px;
+        margin-right: 4px;
+        flex: 0 0 6px;
+    }
+}

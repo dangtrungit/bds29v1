@@ -1,0 +1,52 @@
+.desktop-menu {
+    .menu-item {
+        position: relative;
+        .submenu-1 {
+            width: 250px;
+            position: absolute;
+            top: calc(100% + 30px);
+            opacity: 0;
+            padding: 16px;
+            left: 0px;
+            transition: 0.3s;
+            z-index: -1;
+            visibility: hidden;
+        }
+        &:hover .submenu-1 {
+            opacity: 1;
+            top: 100%;
+            z-index: 1000;
+            visibility: unset;
+        }
+    }
+
+    .header-right {
+        @include media-breakpoint-up(md) {
+            font-size: 1.5rem !important;
+        }
+    }
+}
+
+.featured-top {
+    .remove-featured-btn {
+        top: 50%;
+        right: 0px;
+        transform: translateY(-50%);
+        border-radius: 50%;
+        height: 40px;
+        width: 40px;
+        text-align: center;
+        font-size: 17px;
+        display: none;
+    }
+    .featured-item-wraper {
+        &:hover {
+            background-color: $gray-200;
+            .featured-item {
+                .remove-featured-btn {
+                    display: block;
+                }
+            }
+        }
+    }
+}

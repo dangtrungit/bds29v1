@@ -1,0 +1,27 @@
+.facebook-btn {
+    background-color: #3e549c;
+    color: #fff;
+    &:hover {
+        background-color: #2b3969;
+        color: #fff;
+    }
+}
+
+.google-btn {
+    background-color: #e0602a;
+    color: #fff;
+    &:hover {
+        background-color: #b84f22;
+        color: #fff;
+    }
+}
+
+.login-btn,
+.register-btn {
+    background-color: #0098da;
+    color: #fff;
+    &:hover {
+        background-color: #0075a7;
+        color: #fff;
+    }
+}

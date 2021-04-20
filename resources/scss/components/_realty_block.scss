@@ -1,0 +1,21 @@
+.block-realty {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 10px $gray-400;
+    .btnlike {
+        position: absolute;
+        z-index: 1000;
+        right: 10px;
+        top: 10px;
+        font-size: 1.4rem;
+        border-radius: 50%;
+        width: 35px;
+        height: 35px;
+        line-height: 40px;
+        text-align: center;
+        &.checked {
+            box-shadow: 0 0 5px rgba(255, 255, 255, 0.678);
+            background-color: rgba(255, 255, 255, 0.473);
+        }
+    }
+}

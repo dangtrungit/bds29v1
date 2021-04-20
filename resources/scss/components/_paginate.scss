@@ -1,0 +1,36 @@
+.hrm-pagenavi {
+    ul {
+        width: auto;
+        li {
+            font-weight: 600;
+            border-radius: 50%;
+            transition: 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover {
+                background-color: $info;
+                a {
+                    color: white;
+                }
+            }
+            &.current {
+                background-color: $info;
+                a {
+                    color: white;
+                }
+            }
+            a {
+                font-weight: 600;
+                color: $dark;
+                line-height: 40px;
+                width: 35px;
+                text-align: center;
+            }
+        }
+    }
+}
