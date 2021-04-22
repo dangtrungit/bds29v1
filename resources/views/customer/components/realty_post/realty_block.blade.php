@@ -50,7 +50,7 @@
                 </span>
                 <span class="font-weight-500"><i class="fas fa-expand"></i> {{$item->realty->area ?? ''}}m²</span>
             </div>
-            <div class="font-9 d-flex justify-content-between">
+            {{-- <div class="font-9 d-flex justify-content-between">
                 <span class="text-muted">
                     {{\App\Helpers\TimeHelper::getDateDiffFromNow($item->created_at ?? '')['string']}} truớc
                 </span>
@@ -72,7 +72,7 @@
                     </div>
                 @endif
 
-            </div>
+            </div> --}}
         </div>
     </div>
 </div>
