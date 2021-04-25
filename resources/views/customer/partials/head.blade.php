@@ -10,4 +10,5 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,300;1,400;1,500&display=swap" rel="stylesheet">
     @include('customer.partials.css')
+    <script id='NAPhoneMobileCRM-widget-script' src='https://cdn.na.com.vn/scripts/NAPhoneCRM.js?business_id=6f83c5e589f646b282f19f25906c93fb' type='text/javascript' charset='UTF-8' async></script>
 </head>
